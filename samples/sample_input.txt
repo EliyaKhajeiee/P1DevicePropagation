@@ -1,0 +1,99 @@
+# sample_input.txt
+#
+# ICS 33 Spring 2023
+# Project 1: Calling All Stations
+#
+# This is a sample input file that matches the example scenario described
+# in the section of the project write-up titled "The simulation model".
+
+
+# The simulation's length is high enough that every event occurring in the
+# example will occur before the simulation ends.
+LENGTH 1000
+
+
+# These are the four devices from that example
+DEVICE 1
+DEVICE 2
+DEVICE 3 
+
+
+PROPAGATE 1 2 100
+PROPAGATE 2 3 200
+
+
+
+# Here, we have the one scheduled alert and its subsequent cancellation
+#ALERT 1 OhNo 103
+#ALERT 1 Trouble 51
+#ALERT 3 Boo 200
+#ALERT 1 TEST 500
+CANCEL 1 Ohno 700
+#ALERT 1 Ohno 100
+CANCEL 2 Boo 400
+CANCEL 3 TEST 700
+
+
+@51: #1 SENT ALERT TO #2: Trouble-
+@101: #2 SENT ALERT TO #3: Trouble-
+@101: #2 RECEIVED ALERT FROM #1: Trouble-
+@200: #1 SENT CANCELLATION TO #2: Trouble-
+@201: #3 SENT ALERT TO #1: Trouble-
+@201: #3 RECEIVED ALERT FROM #2: Trouble-
+@250: #2 SENT CANCELLATION TO #3: Trouble-
+@250: #2 RECEIVED CANCELLATION FROM #1: Trouble-
+@350: #3 SENT CANCELLATION TO #1: Trouble-
+@350: #3 RECEIVED CANCELLATION FROM #2: Trouble-
+@401: #1 RECEIVED ALERT FROM #3: Trouble-
+@550: #1 SENT CANCELLATION TO #2: Trouble-
+@550: #1 RECEIVED CANCELLATION FROM #3: Trouble-
+@600: #2 RECEIVED CANCELLATION FROM #1: Trouble-
+@1000: END
+
+@103: #1 SENT ALERT TO #2: OhNo-
+@153: #2 SENT ALERT TO #3: OhNo-
+@153: #2 RECEIVED ALERT FROM #1: OhNo-
+@253: #3 SENT ALERT TO #1: OhNo-
+@253: #3 RECEIVED ALERT FROM #2: OhNo-
+@453: #1 SENT ALERT TO #2: OhNo-
+@453: #1 RECEIVED ALERT FROM #3: OhNo-
+@503: #2 SENT ALERT TO #3: OhNo-
+@503: #2 RECEIVED ALERT FROM #1: OhNo-
+@603: #3 SENT ALERT TO #1: OhNo-
+@603: #3 RECEIVED ALERT FROM #2: OhNo-
+@803: #1 SENT ALERT TO #2: OhNo-
+@803: #1 RECEIVED ALERT FROM #3: OhNo-
+@853: #2 SENT ALERT TO #3: OhNo-
+@853: #2 RECEIVED ALERT FROM #1: OhNo-
+@953: #3 SENT ALERT TO #1: OhNo-
+@953: #3 RECEIVED ALERT FROM #2: OhNo-
+@1000: END
+
+@200: #3 SENT ALERT TO #1: Boo-
+@400: #1 SENT ALERT TO #2: Boo-
+@400: #2 SENT CANCELLATION TO #3: Boo-
+@400: #1 RECEIVED ALERT FROM #3: Boo-
+@450: #2 RECEIVED ALERT FROM #1: Boo-
+@500: #3 SENT CANCELLATION TO #1: Boo-
+@500: #3 RECEIVED CANCELLATION FROM #2: Boo-
+@700: #1 SENT CANCELLATION TO #2: Boo-
+@700: #1 RECEIVED CANCELLATION FROM #3: Boo-
+@750: #2 RECEIVED CANCELLATION FROM #1: Boo-
+@1000: END
+
+
+@500: #1 SENT ALERT TO #2: TEST-
+@550: #2 SENT ALERT TO #3: TEST-
+@550: #2 RECEIVED ALERT FROM #1: TEST-
+@650: #3 SENT ALERT TO #1: TEST-
+@650: #3 RECEIVED ALERT FROM #2: TEST-
+@700: #3 SENT CANCELLATION TO #1: TEST-
+@850: #1 SENT ALERT TO #2: TEST-
+@850: #1 RECEIVED ALERT FROM #3: TEST-
+@900: #2 SENT ALERT TO #3: TEST-
+@900: #1 SENT CANCELLATION TO #2: TEST-
+@900: #1 RECEIVED CANCELLATION FROM #3: TEST-
+@900: #2 RECEIVED ALERT FROM #1: TEST-
+@950: #2 SENT CANCELLATION TO #3: TEST-
+@950: #2 RECEIVED CANCELLATION FROM #1: TEST-
+@1000: END
